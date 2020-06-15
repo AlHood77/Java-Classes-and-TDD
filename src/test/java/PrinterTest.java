@@ -10,7 +10,7 @@ public class PrinterTest {
 
    @Before
     public void before(){
-       printer = new Printer(100, 5, 2, 10);
+       printer = new Printer(100, 5, 2, 12);
    }
 
    @Test
@@ -34,9 +34,20 @@ public class PrinterTest {
     }
 
     @Test
-    public void printerPaperVolumeReducedOnPrint(){
-       Printer emptyPrinter =
-        assertEquals(90, printer.print());
+    public void notEnoughPaper(){
+       Printer almostEmptyPrinter = new Printer(7, 2, 5, 10);
+        assertEquals(7, almostEmptyPrinter.print());
+    }
+
+    @Test
+    public void volumeofToner(){
+       assertEquals(12, printer.getTonerVolume());
+    }
+
+    @Test
+    public void reduceTonerOnPrint(){
+       Printer Printer2 = new Printer(10, 2, 5, 15);
+       assertEquals(5, Printer2.reduceTonerVolume());
     }
 
 }

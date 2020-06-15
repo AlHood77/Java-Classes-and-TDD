@@ -4,7 +4,7 @@ public class Printer {
     private int paperSheets;
     private int pageCount;
     private int numberOfCopies;
-    printer int tonerVolume;
+    private int tonerVolume;
 
     public Printer(int paperSheets, int pageCount, int numberOfCopies, int tonerVolume){
         this.paperSheets = paperSheets;
@@ -31,4 +31,16 @@ public class Printer {
         }
         return this.paperSheets;
     }
+
+    public int getTonerVolume(){
+        return this.tonerVolume;
+    }
+
+    public int reduceTonerVolume(){
+        if (this.paperSheets <= this.tonerVolume){
+            return this.tonerVolume - this.paperSheets;
+        }
+        return this.tonerVolume;
+    }
+
 }
